@@ -7,7 +7,7 @@
 **Site de réservation en ligne pour une coiffeuse spécialisée en tresses, locs et twists au Mans.**
 Les clientes choisissent leur coiffure, voient le prix exact et réservent un créneau réellement libre dans le Google Agenda de la coiffeuse.
 
-[**Voir le site**](https://dokceles.github.io/kitokos-hair/) · [Installation](#installation) · [Personnaliser](#personnaliser)
+[**Voir le site**](https://dokceles.github.io/Kitokos-hair/) · [Installation](#installation) · [Personnaliser](#personnaliser)
 
 ![HTML](https://img.shields.io/badge/HTML%20%2F%20CSS%20%2F%20JS-sans%20d%C3%A9pendance-24102B?style=flat-square)
 ![Google Apps Script](https://img.shields.io/badge/Google%20Apps%20Script-Calendar%20%2B%20Gmail-C42A63?style=flat-square)
@@ -65,7 +65,7 @@ Compter environ 15 minutes. Le site fonctionne en **mode démo** tant que l'éta
 
 1. Sur GitHub, ouvrez le dépôt, puis **Settings → Pages**.
 2. Dans *Build and deployment*, choisissez **Deploy from a branch**, branche `main`, dossier `/ (root)`, puis **Save**.
-3. Le site est en ligne après une minute à l'adresse `https://dokceles.github.io/kitokos-hair/`.
+3. Le site est en ligne après une minute à l'adresse `https://dokceles.github.io/Kitokos-hair/`.
 
 ### 2. Connecter le Google Agenda (avec le compte Google de la coiffeuse)
 
