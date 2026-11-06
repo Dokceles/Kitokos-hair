@@ -34,7 +34,7 @@ window.KITOKO_CONFIG = {
     // Horaires d'ouverture par jour (0 = dimanche … 6 = samedi). null = fermé.
     // Un rendez-vous doit COMMENCER et SE TERMINER dans ces horaires.
     hours: {
-      0: null,
+      0: { start: "09:00", end: "18:00" },
       1: { start: "09:00", end: "18:00" },
       2: { start: "09:00", end: "18:00" },
       3: { start: "09:00", end: "18:00" },
