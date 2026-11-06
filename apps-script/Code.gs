@@ -29,7 +29,7 @@ const CONFIG = {
   MIN_DURATION_MINUTES: 30,
   MAX_DURATION_MINUTES: 600,
   OPEN_HOURS: {          // 0 = dimanche … 6 = samedi
-    0: null,
+    0: ["09:00", "18:00"],
     1: ["09:00", "18:00"],
     2: ["09:00", "18:00"],
     3: ["09:00", "18:00"],
