@@ -229,7 +229,7 @@
     }
     const sField = $("[data-size-field]"); const sChips = $("[data-size-chips]"); sChips.replaceChildren();
     sField.hidden = !(f && f.sizes);
-    if (f && f.sizes) CAT.sizes.forEach((s) => sChips.append(chip("size", s.id, s.label, `+${euro(s.extra)}`, () => { state.size = s.id; refreshSummary(); })));
+    if (f && f.sizes) CAT.sizes.forEach((s) => sChips.append(chip("size", s.id, s.label, s.extra ? `+${euro(s.extra)}` : "sans supplément", () => { state.size = s.id; refreshSummary(); })));
     state.time = null; state.date = null;
     refreshSummary();
   }
@@ -353,6 +353,13 @@
   /* ───────── Étape 3 : coordonnées + envoi ───────── */
   function buildStep3() {
     const form = $('[data-step="3"]');
+    const mechesNote = $("[data-meches-note]");
+    const updateMeches = () => {
+      const fournies = form.elements.hairSupply.value === MECHES_FOURNIES;
+      mechesNote.hidden = !fournies;
+      if (fournies) mechesNote.replaceChildren(...mechesMessage());
+    };
+    form.addEventListener("change", (e) => { if (e.target.name === "hairSupply") updateMeches(); });
     form.addEventListener("input", (e) => { if (e.target.getAttribute("aria-invalid") === "true") e.target.setAttribute("aria-invalid", "false"); });
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -408,6 +415,21 @@
     });
   }
 
+  const MECHES_FOURNIES = "Mèches fournies par la coiffeuse";
+  function mechesMessage() {
+    const biz = CFG.business;
+    const links = [];
+    if (biz.whatsapp) links.push(el("a", { href: `https://wa.me/${biz.whatsapp}`, target: "_blank", rel: "noopener", text: "WhatsApp" }));
+    if (biz.phoneDisplay) links.push(el("a", { href: `tel:+${biz.whatsapp || ""}`, text: biz.phoneDisplay }));
+    if (biz.instagram) links.push(el("a", { href: `https://instagram.com/${biz.instagram}`, target: "_blank", rel: "noopener", text: `@${biz.instagram}` }));
+    const sep = links.flatMap((a, i) => (i ? [" · ", a] : [a]));
+    return [
+      el("strong", { text: "Mèches fournies : sur devis. " }),
+      "Le prix des mèches s'ajoute à celui de la prestation. Contactez la coiffeuse avant le rendez-vous pour choisir la couleur et la longueur, et connaître le prix",
+      ...(sep.length ? [" : ", ...sep, "."] : ["."]),
+    ];
+  }
+
   function showDone(payload, data) {
     $("[data-done-title]").textContent = `Merci ${payload.firstName}, votre demande est envoyée`;
     $("[data-done-text]").textContent = DEMO
@@ -417,6 +439,7 @@
       ["Référence", data.ref],
       ["Coiffure", payload.service],
       ["Suppléments", payload.extras.join(", ") || "Aucun"],
+      ["Mèches", payload.hairSupply === MECHES_FOURNIES ? "Fournies par la coiffeuse, sur devis : contactez-la avant le rendez-vous" : payload.hairSupply],
       ["Date", `${dateLong(payload.date)}, ${hhFr(payload.time)}`],
       ["Prix", (payload.priceFrom ? "dès " : "") + euro(payload.total)],
     ];
@@ -438,7 +461,7 @@
   function buildMisc() {
     $$("[data-back]").forEach((b) => b.addEventListener("click", () => goTo(step - 1)));
     $("[data-restart]").addEventListener("click", () => {
-      $('[data-step="3"]').reset(); state.extras.clear(); $$("[data-extra-checks] input").forEach((i) => (i.checked = false));
+      $('[data-step="3"]').reset(); $("[data-meches-note]").hidden = true; state.extras.clear(); $$("[data-extra-checks] input").forEach((i) => (i.checked = false));
       busyCache.clear(); setFamily(""); goTo(1);
     });
     if (DEMO) $("[data-demo-banner]").hidden = false;
