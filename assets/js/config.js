@@ -20,7 +20,7 @@ window.KITOKO_CONFIG = {
    * Tant qu'elle est vide, le site tourne en MODE DÉMO :
    * tous les créneaux sont libres et aucune réservation n'est envoyée.
    */
-  appsScriptUrl: "",
+  appsScriptUrl: "https://script.google.com/macros/s/AKfycbxa27PaAQhDbkbBQyxzPyovQv_VdxWmRE2jKLDIjwNei9o15KdnN8WxhxeiH1_n3gAy/exec",
 
   booking: {
     // Durée bloquée dans l'agenda pour une séance (en minutes) : 6 h
