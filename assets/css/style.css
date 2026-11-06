@@ -264,6 +264,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .slots__title { font-weight: 600; margin-bottom: .6rem; }
 .slots__list { display: flex; flex-wrap: wrap; gap: .5rem; }
 
+.meches-note { margin-top: .2rem; padding: .9rem 1rem; border-radius: var(--radius-s); background: #FFF6E3; border: 1.5px solid var(--gold); color: var(--ink); line-height: 1.5; }
+.meches-note a { color: var(--fuchsia); font-weight: 700; }
 .form-error { margin-top: 1rem; padding: .8rem 1rem; border-radius: var(--radius-s); background: #FBE9E7; color: var(--err); font-weight: 600; }
 
 /* Récapitulatif latéral */
