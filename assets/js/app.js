@@ -71,7 +71,9 @@
       tabs.append(tab);
 
       const panel = el("div", { class: "price-panel", role: "tabpanel", id: `panel-${g.id}`, "aria-labelledby": `tab-${g.id}`, hidden: i !== 0 });
-      CAT.families.filter((f) => f.group === g.id).forEach((f) => panel.append(priceCard(f)));
+      const isSingle = (f) => f.variants.length === 1 && !f.sizes;
+      const fams = CAT.families.filter((f) => f.group === g.id);
+      [...fams.filter((f) => !isSingle(f)), ...fams.filter(isSingle)].forEach((f) => panel.append(priceCard(f)));
       panels.append(panel);
     });
 
@@ -94,6 +96,14 @@
   }
 
   function priceCard(f) {
+    const book = el("button", { class: "price-card__book", type: "button", text: "Réserver cette coiffure", onclick: () => startWith(f.id) });
+    if (f.variants.length === 1 && !f.sizes) {
+      const [, , price, from] = f.variants[0];
+      return el("article", { class: "price-card price-card--single" },
+        el("div", { class: "price-card__row" }, el("h3", { text: f.name }), el("p", { class: "price-card__price", text: (from ? "dès " : "") + euro(price) })),
+        book
+      );
+    }
     const head = f.sizes
       ? el("tr", {}, el("th", { scope: "col", text: f.variantLabel }), ...CAT.sizes.map((s) => el("th", { scope: "col", text: `Taille ${s.label}` })))
       : el("tr", {}, el("th", { scope: "col", text: f.variantLabel }), el("th", { scope: "col", text: "Prix" }));
@@ -105,7 +115,7 @@
     return el("article", { class: "price-card" },
       el("h3", { text: f.name }),
       el("table", { class: "price-table" }, el("thead", {}, head), el("tbody", {}, rows)),
-      el("button", { class: "price-card__book", type: "button", text: "Réserver cette coiffure", onclick: () => startWith(f.id) })
+      book
     );
   }
 
