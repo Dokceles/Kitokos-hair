@@ -16,7 +16,7 @@ window.KITOKO_SERVICES = {
   sizes: [
     { id: "S", label: "S", extra: 10 },
     { id: "M", label: "M", extra: 5 },
-    { id: "L", label: "L", extra: 5 },
+    { id: "L", label: "L", extra: 0 },
   ],
 
   groups: [
