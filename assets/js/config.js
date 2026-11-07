@@ -9,10 +9,10 @@ window.KITOKO_CONFIG = {
     name: "KITOKO's HAIR",
     city: "Le Mans",
     // Numéro affiché sur le site (format international pour WhatsApp, sans + ni espaces)
-    phoneDisplay: "06 00 00 00 00",
-    whatsapp: "33600000000",
+    phoneDisplay: "06 44 89 17 22",
+    whatsapp: "33644891722",
     instagram: "kitoko_hair_officiel", // sans le @
-    email: "contact@exemple.fr",
+    email: "", // laisser vide pour ne pas afficher d'e-mail
   },
 
   /**
