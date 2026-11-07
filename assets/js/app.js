@@ -467,7 +467,22 @@
     if (DEMO) $("[data-demo-banner]").hidden = false;
   }
 
+  /* ───────── Logo : légère inclinaison qui suit la souris ───────── */
+  function tiltLogo() {
+    const fig = $("[data-tilt]");
+    if (!fig || !matchMedia("(pointer: fine)").matches || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const zone = fig.closest(".hero") || fig;
+    const clamp = (v) => Math.max(-1, Math.min(1, v));
+    zone.addEventListener("pointermove", (e) => {
+      const r = fig.getBoundingClientRect();
+      fig.style.setProperty("--ry", `${clamp((e.clientX - r.left - r.width / 2) / r.width) * 9}deg`);
+      fig.style.setProperty("--rx", `${clamp(-(e.clientY - r.top - r.height / 2) / r.height) * 9}deg`);
+    });
+    zone.addEventListener("pointerleave", () => { fig.style.setProperty("--rx", "0deg"); fig.style.setProperty("--ry", "0deg"); });
+  }
+
   fillBusiness();
+  tiltLogo();
   renderPrices();
   buildStep1();
   buildStep2();
