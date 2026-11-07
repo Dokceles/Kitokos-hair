@@ -11,7 +11,7 @@ window.KITOKO_CONFIG = {
     // Numéro affiché sur le site (format international pour WhatsApp, sans + ni espaces)
     phoneDisplay: "06 00 00 00 00",
     whatsapp: "33600000000",
-    instagram: "kitokos_hair", // sans le @
+    instagram: "kitoko_hair_officiel", // sans le @
     email: "contact@exemple.fr",
   },
 
