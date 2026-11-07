@@ -9,10 +9,11 @@
   <meta property="og:title" content="KITOKO's HAIR — Réservez votre séance de tresses au Mans">
   <meta property="og:description" content="Choisissez votre coiffure, votre longueur et votre date : la réservation se fait en 2 minutes.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://dokceles.github.io/Kitokos-hair/assets/img/og-image.png">
+  <meta property="og:image" content="https://dokceles.github.io/Kitokos-hair/assets/img/og-image.jpg">
   <meta property="og:url" content="https://dokceles.github.io/Kitokos-hair/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/unbounded-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
@@ -23,7 +24,7 @@
   <header class="top">
     <div class="wrap top__inner">
       <a class="brand" href="#" aria-label="KITOKO's HAIR, accueil">
-        <svg class="brand__mark" viewBox="0 0 24 40" aria-hidden="true"><use href="#braid-mark"/></svg>
+        <img class="brand__mark" src="assets/img/kitoko-mark.png" alt="" width="112" height="139">
         <span class="brand__name">Kitoko's Hair</span>
       </a>
       <nav class="nav" aria-label="Navigation principale">
@@ -54,20 +55,8 @@
           </dl>
         </div>
 
-        <figure class="hero__braid" aria-label="Guide des longueurs, de l'épaule au bas des fesses">
-          <svg viewBox="0 0 220 640" class="braid" role="img" aria-hidden="true">
-            <g class="braid__strands" fill="none" stroke-linecap="round" stroke-width="26">
-              <path class="strand strand--a" d="M110 10 C 170 50, 170 90, 110 130 S 50 210, 110 250 S 170 330, 110 370 S 50 450, 110 490 S 170 570, 110 610"/>
-              <path class="strand strand--b" d="M110 50 C 50 90, 50 130, 110 170 S 170 250, 110 290 S 50 370, 110 410 S 170 490, 110 530 S 50 600, 110 630"/>
-              <path class="strand strand--c" d="M110 90 C 170 130, 170 170, 110 210 S 50 290, 110 330 S 170 410, 110 450 S 50 530, 110 570"/>
-            </g>
-          </svg>
-          <ol class="lengths">
-            <li style="--y: 22%">Épaule</li>
-            <li style="--y: 42%">Mi-dos</li>
-            <li style="--y: 64%">Bas du dos</li>
-            <li style="--y: 88%">Bas des fesses</li>
-          </ol>
+        <figure class="hero__logo">
+          <img src="assets/img/kitoko-logo.png" width="355" height="384" alt="Logo KITOKO's hair : profil d'une femme coiffée de nattes collées et d'un chignon bouclé">
         </figure>
       </div>
     </section>
@@ -267,7 +256,7 @@
   <footer class="foot" id="contact">
     <div class="wrap foot__grid">
       <div>
-        <p class="foot__brand">Kitoko's Hair</p>
+        <p class="foot__brand"><span class="foot__mark"><img src="assets/img/kitoko-mark.png" alt="" width="112" height="139"></span>Kitoko's Hair</p>
         <p class="foot__city"><span data-city>Le Mans</span>, sur rendez-vous uniquement</p>
       </div>
       <ul class="foot__links">
@@ -279,16 +268,6 @@
       <p class="foot__legal">Vos coordonnées servent uniquement à gérer votre rendez-vous et ne sont jamais revendues. Pour les faire supprimer, écrivez-nous.</p>
     </div>
   </footer>
-
-  <!-- Symbole tresse réutilisé (logo) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <symbol id="braid-mark" viewBox="0 0 24 40">
-      <g fill="none" stroke-width="4" stroke-linecap="round">
-        <path stroke="#E8B04B" d="M12 2c6 4 6 8 0 12s-6 8 0 12 6 8 0 12"/>
-        <path stroke="#D6336C" d="M12 8c-6 4-6 8 0 12s6 8 0 12"/>
-      </g>
-    </symbol>
-  </svg>
 
   <script src="assets/js/config.js"></script>
   <script src="assets/js/services.js"></script>
