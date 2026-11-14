@@ -301,6 +301,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .cal__day.is-open:hover { border-color: var(--ink); }
 .cal__day[aria-pressed="true"] { background: var(--ink); color: var(--white); }
 .cal__day[aria-pressed="true"]::after { background: var(--gold); }
+.cal-note { margin: 0 0 1rem; max-width: 460px; padding: .75rem 1rem; border-radius: var(--radius-s); background: var(--gold-soft); border: 1.5px solid var(--gold); color: var(--ink); font-size: var(--step--1); line-height: 1.5; }
 .cal__status { margin-top: .6rem; font-size: var(--step--1); color: var(--ink-soft); min-height: 1.4em; }
 
 .slots__title { font-weight: 600; margin-bottom: .6rem; }
